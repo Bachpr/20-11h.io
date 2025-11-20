@@ -655,3 +655,225 @@ body {
         font-size: 16px;
     }
 }
+
+/* Poem Container with special effects */
+.poem-container {
+    position: relative;
+    margin: 30px 0;
+}
+
+.poem {
+    font-size: 20px;
+    font-style: italic;
+    color: #764ba2;
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(118, 75, 162, 0.3);
+}
+
+.poem::before {
+    content: '📖';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 40px;
+    opacity: 0.3;
+}
+
+.poem::after {
+    content: '✍️';
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 40px;
+    opacity: 0.3;
+}
+
+.poem-line {
+    display: inline-block;
+    animation: poemReveal 1s ease-out;
+    animation-fill-mode: both;
+}
+
+.poem-line:nth-child(1) { animation-delay: 0.2s; }
+.poem-line:nth-child(2) { animation-delay: 0.4s; }
+.poem-line:nth-child(3) { animation-delay: 0.6s; }
+.poem-line:nth-child(4) { animation-delay: 0.8s; }
+
+@keyframes poemReveal {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Text reveal animation */
+.text-reveal {
+    display: inline-block;
+    animation: textSlideIn 0.8s ease-out;
+    animation-fill-mode: both;
+}
+
+.text-reveal:nth-child(1) { animation-delay: 1s; }
+.text-reveal:nth-child(2) { animation-delay: 1.2s; }
+.text-reveal:nth-child(3) { animation-delay: 1.4s; }
+.text-reveal:nth-child(4) { animation-delay: 1.6s; }
+
+@keyframes textSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Enhanced highlight items */
+.highlight-item {
+    margin: 15px 0;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    transform: translateX(-100%);
+    animation: slideInHighlight 0.6s ease-out forwards;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.highlight-item:hover {
+    transform: translateX(10px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(245, 87, 108, 0.3);
+}
+
+.highlight-item:nth-child(1) { animation-delay: 1.8s; }
+.highlight-item:nth-child(2) { animation-delay: 2s; }
+.highlight-item:nth-child(3) { animation-delay: 2.2s; }
+.highlight-item:nth-child(4) { animation-delay: 2.4s; }
+
+@keyframes slideInHighlight {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Wish lines animation */
+.wish-line {
+    display: inline-block;
+    animation: wishGlow 1s ease-out;
+    animation-fill-mode: both;
+}
+
+.wish-line:nth-child(1) { animation-delay: 2.6s; }
+.wish-line:nth-child(2) { animation-delay: 2.8s; }
+.wish-line:nth-child(3) { animation-delay: 3s; }
+.wish-line:nth-child(4) { animation-delay: 3.2s; }
+
+@keyframes wishGlow {
+    0% {
+        opacity: 0;
+        text-shadow: none;
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(102, 126, 234, 0.8);
+    }
+    100% {
+        opacity: 1;
+        text-shadow: none;
+    }
+}
+
+/* Signature animation */
+.signature-text, .signature-date {
+    display: inline-block;
+    animation: signatureFade 1s ease-out;
+    animation-fill-mode: both;
+}
+
+.signature-text { animation-delay: 3.4s; }
+.signature-date { animation-delay: 3.6s; }
+
+@keyframes signatureFade {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Magic Button */
+.magic-btn {
+    display: block;
+    margin: 40px auto 0;
+    padding: 20px 50px;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+    transition: all 0.3s ease;
+    animation: btnPulse 2s ease-in-out infinite;
+}
+
+@keyframes btnPulse {
+    0%, 100% {
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+    }
+    50% {
+        box-shadow: 0 10px 50px rgba(102, 126, 234, 0.8), 0 0 30px rgba(102, 126, 234, 0.6);
+    }
+}
+
+.magic-btn:hover {
+    transform: scale(1.1) rotate(2deg);
+    box-shadow: 0 15px 50px rgba(102, 126, 234, 0.8);
+}
+
+.magic-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.magic-btn:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
